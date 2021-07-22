@@ -52,8 +52,12 @@ const App = ( ) => {
 
   return (
     <div className="container">
-      <Header title='Task Tracker'></Header>
-      {showAddTask&&<AddTask onAdd={addTask}></AddTask>}
+      <Header 
+        onAdd={()=>setShowAddTask(!showAddTask)} 
+        showAdd={showAddTask}
+      ></Header>
+      {showAddTask&&<AddTask 
+      onAdd={addTask}></AddTask>}
       {
         tasks.length > 0 ? 
           //yes
